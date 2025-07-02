@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Média</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Jogo: Calcule a Média</h1>
+        <p>Clique no botão para começar a inserir os números.</p>
+        <button onclick="iniciarJogo()">Começar Jogo</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function iniciarJogo() {
+            // 1. Perguntar a quantidade de números.
+            let quantidadeStr = prompt("Quantos números você deseja inserir para calcular a média?");
+            let quantidade = parseInt(quantidadeStr);
+
+            // Validação: Verifica se a entrada é um número válido e maior que zero.
+            if (isNaN(quantidade) || quantidade <= 0) {
+                alert("Por favor, digite um número válido e maior que zero.");
+                return; // Encerra a função se a entrada for inválida.
+            }
+
+            let numeros = [];
+            let soma = 0;
+
+            // 2. Pedir cada número usando um laço (loop).
+            for (let i = 0; i < quantidade; i++) {
+                let numeroStr = prompt(`Digite o ${i + 1}º número:`);
+                let numero = parseFloat(numeroStr);
+
+                // Validação: Verifica se cada número inserido é válido.
+                if (isNaN(numero)) {
+                    alert("Entrada inválida. Por favor, digite apenas números. O cálculo será redefinido.");
+                    document.getElementById('resultado').innerHTML = ""; // Limpa o resultado anterior
+                    return; // Encerra a função.
+                }
+                
+                numeros.push(numero);
+                soma += numero; // Adiciona o número à soma total.
+            }
+
+            // 3. Calcular a média.
+            const media = soma / quantidade;
+
+            // 4. Mostrar o resultado na tela.
+            const elementoResultado = document.getElementById('resultado');
+            elementoResultado.innerHTML = `
+                <p>Os números digitados foram: ${numeros.join(', ')}</p>
+                <p>A média entre eles é: ${media.toFixed(2)}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
