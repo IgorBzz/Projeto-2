@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação de Jogos Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .game-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            width: 300px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-soma {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            color: white;
+        }
+        
+        .btn-media {
+            background: linear-gradient(45deg, #4ECDC4, #44A08D);
+            color: white;
+        }
+        
+        .btn-secreto {
+            background: linear-gradient(45deg, #A8EDEA, #FED6E3);
+            color: #333;
+        }
+        
+        .game-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .game-button:active {
+            transform: translateY(-1px);
+        }
+        
+        .description {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            color: #555;
+        }
+        
+        @media (max-width: 480px) {
+            .game-button {
+                width: 100%;
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Jogos Web</h1>
+        <p class="subtitle">Escolha um dos jogos abaixo para começar a diversão!</p>
+        
+        <div class="buttons-container">
+            <button class="game-button btn-soma" onclick="jogoSomaNumeros()">
+                ➕ Soma de Números
+            </button>
+            
+            <button class="game-button btn-media" onclick="jogoCalcularMedia()">
+                📊 Calcular Média
+            </button>
+            
+            <button class="game-button btn-secreto" onclick="jogoNumeroSecreto()">
+                🔍 Número Secreto
+            </button>
+        </div>
+        
+        <div class="description">
+            <p><strong>Soma de Números:</strong> Digite dois números e descubra a soma!</p>
+            <p><strong>Calcular Média:</strong> Insira vários números e calcule a média aritmética.</p>
+            <p><strong>Número Secreto:</strong> Tente adivinhar o número secreto entre 1 e 10!</p>
+        </div>
+    </div>
+
+    <!-- Arquivo JavaScript  -->
+    <script src="script.js"></script>
+</body>
+</html>
